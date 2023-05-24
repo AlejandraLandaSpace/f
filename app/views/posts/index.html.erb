@@ -1,12 +1,3 @@
-<div>
-  <div>
-    <h1>
-      List of all posts
-    </h1>
-  </div>
-</div>
-
-<hr>
 
 <div>
   <div>
@@ -14,7 +5,11 @@
       Add a new post
     </h2>
 
-    <form action="/insert_post" method="post">
+    <form action="/insert_post" method="post" enctype="multipart/form-data">
+         <div>
+        <label for="form-group">Image</label>
+        <input type="file" id="form-group" name="query_photo" placeholder="Enter a URL for the image...">
+      </div>
       <div>
         <label for="description_box">
           Description
@@ -23,13 +18,9 @@
         <input type="text" id="description_box" name="query_description">
       </div>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
 
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
+        <input type="hidden" id="user_id_box" name="query_user_id" value="@current_user">
+
 
       <button>
         Create post
@@ -37,66 +28,3 @@
     </form>
   </div>
 </div>
-
-<hr>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          Description
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_posts.each do |a_post| %>
-      <tr>
-        <td>
-          <%= a_post.id %>
-        </td>
-
-        <td>
-          <%= a_post.description %>
-        </td>
-
-        <td>
-          <%= a_post.user_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_post.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_post.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/posts/<%= a_post.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
-
-<hr>
