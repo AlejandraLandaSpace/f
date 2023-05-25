@@ -29,8 +29,34 @@
     <% end %>
   </div>
 </div>
-
-
+<!--
+<div>
+  <ul class="pagination pagination-sm">
+    <li class="page-item disabled">
+      <a class="page-link" href="#">&laquo;</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link" href="#">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">4</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">5</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">&raquo;</a>
+    </li>
+  </ul>
+</div>
+-->
+<%= paginate @posts, theme: 'bootstrap-5', pagination_class: "mx-auto", nav_class: "d-flex" %>
 <a href="/create_posts" class="btn btn-primary btn-lg" role="button">
   Create Post
 </a>
