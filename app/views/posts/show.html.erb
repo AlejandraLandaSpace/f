@@ -6,19 +6,24 @@
 
     <div>
       <div>
-        <a href="/posts">
+        <a href="/dashboard">
           Go back
         </a>
       </div>
-
+      
+     <%if @current_user.id == @the_post.user_id%>
       <div>
         <a href="/delete_post/<%= @the_post.id %>">
           Delete post
         </a>
       </div>
+      <%end%>
     </div>
 
     <dl>
+      <dt>
+        <img src="<%= @the_post.photo %>">
+      </dt>
       <dt>
         Description
       </dt>
@@ -52,7 +57,7 @@
 
 <hr>
 
-
+<%if @current_user.id == @the_post.user_id%>
 <div>
   <div>
     <h2>
@@ -82,5 +87,5 @@
     </form>
   </div>
 </div>
-
+<%end%>
 <hr>
