@@ -1,20 +1,29 @@
-<style>
-h1{
-text-align:center;
-margin-top:2rem;
-margin-bottom:2rem;
-}
-button{
-  position:absolute;
-  margin-left:2rem;
-  bottom:1rem;
+<h1 class="text-center my-2">Posts</h1>
 
-}
-</style>
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="offset-md-4 col-md-4 my-3">
+        <div class="card">
+          <img src="<%= post.photo %>" class="img-responsive">
+          <div class="card-body">
+            <p class="card-text text-truncate">
+              <%= post.description %></p>
+            </p>
+          </div>
+          <div class="card-body">
+            <a href="/posts/<%= post.id %>" class="card-link">See details</a>
+          </div>
+          <div class="card-footer text-muted">
+            <%= time_ago_in_words(post.created_at) %> ago
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<h1>Posts</h1
- <%= render "shared/post" %>
 
-<a href="/create_posts">
-<button type="button" class="btn btn-primary btn-lg">Create Post</button>
+<a href="/create_posts" class="btn btn-primary btn-lg" role="button">
+  Create Post
 </a>
