@@ -18,6 +18,7 @@ gem "cloudinary"
 gem 'mini_magick'
 
 
+
 group :development do
   gem 'htmlbeautifier'
   gem 'listen', '~> 3.2'
