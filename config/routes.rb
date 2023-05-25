@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # READ
   get("/create_posts", { :controller => "posts", :action => "index" })
-
+  get("/posts", { :controller => "dashboard", :action => "index" })
   get("/posts/:path_id", { :controller => "posts", :action => "show" })
 
   # UPDATE
