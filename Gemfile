@@ -16,7 +16,9 @@ gem 'faker'
 gem "carrierwave"
 gem "cloudinary"
 gem 'mini_magick'
-
+gem 'ransack'
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
 
 
 group :development do
