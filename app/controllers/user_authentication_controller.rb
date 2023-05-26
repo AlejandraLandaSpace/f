@@ -8,17 +8,17 @@ class UserAuthenticationController < ApplicationController
 
   def create_cookie
     user = User.where({ :email => params.fetch("query_email") }).first
-    
+
     the_supplied_password = params.fetch("query_password")
-    
+
     if user != nil
       are_they_legit = user.authenticate(the_supplied_password)
-    
+
       if are_they_legit == false
         redirect_to("/user_sign_in", { :alert => "Incorrect password." })
       else
         session[:user_id] = user.id
-      
+
         redirect_to("/dashboard", { :notice => "Signed in successfully." })
       end
     else
@@ -49,13 +49,13 @@ class UserAuthenticationController < ApplicationController
 
     if save_status == true
       session[:user_id] = @user.id
-   
+
       redirect_to("/dashboard", { :notice => "User account created successfully."})
     else
       redirect_to("/user_sign_up", { :alert => @user.errors.full_messages.to_sentence })
     end
   end
-    
+
   def edit_profile_form
     render({ :template => "user_authentication/edit_profile.html.erb" })
   end
@@ -68,7 +68,7 @@ class UserAuthenticationController < ApplicationController
     @user.first_name = params.fetch("query_first_name")
     @user.last_name = params.fetch("query_last_name")
     @user.company_name = params.fetch("query_company_name")
-    
+
     if @user.valid?
       @user.save
 
@@ -77,12 +77,15 @@ class UserAuthenticationController < ApplicationController
       render({ :template => "user_authentication/edit_profile_with_errors.html.erb" , :alert => @user.errors.full_messages.to_sentence })
     end
   end
+  def index
+    render({ :template => "user_authentication/profile.html.erb" })
+  end
 
   def destroy
     @current_user.destroy
     reset_session
-    
+
     redirect_to("/", { :notice => "User account cancelled" })
   end
- 
+
 end

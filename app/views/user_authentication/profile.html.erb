@@ -1,0 +1,24 @@
+Image
+
+
+<p> Name</p>
+<p><%=@current_user.first_name%> <%=@current_user.last_name%></p>
+
+<p>Company</p>
+<%=@current_user.company_name%>
+
+
+<p>List of users posts:</p>
+<% posts = @current_user.posts %>
+<% posts.each do |post| %>
+<div>
+    <p>Description: <%= post.description %></p>
+    <p>Created at: <%= post.created_at %></p>
+    <a href="/posts/<%= post.id %>">See details</a>
+  </div>
+<% end %>
+
+
+<a href="/edit_user_profile" class="btn btn-primary btn-lg" role="button">
+  Edit profile
+</a>
