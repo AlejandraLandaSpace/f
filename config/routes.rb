@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :conversations, only: [:index, :create] do
+  resources :messages, only: [:index, :new, :create]
+  end
+
+
   get("/dashboard", { :controller => "dashboard", :action => "index" })
 
 
