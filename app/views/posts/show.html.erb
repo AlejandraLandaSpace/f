@@ -32,24 +32,31 @@
       </dd>
 
       <dt>
-        User
+        Posted by
       </dt>
       <dd>
-       name goes here
+      <%= @the_post.user.first_name %>
       </dd>
-       <dt>
-        Message
-      </dt>
-      <dd>
-        <%users = User.all%>
-       <% users.each do |user| %>
-    <% if user.id != @current_user.id %>
-      <div class="item">
-        <%= user.first_name %> <%= link_to 'Message me!', conversations_path(sender_id: @current_user.id, recipient_id: user.id), method: 'post' %>
-      </div>
-    <% end %>
-    <% end %>
-      </dd>
+
+      
+        <% if @the_post.user != @current_user %>
+
+    <dt>
+  Message
+</dt>
+<dd>
+
+    <form action="<%= conversations_path %>" method="post">
+      <%= hidden_field_tag :sender_id, @current_user.id %>
+      <%= hidden_field_tag :recipient_id, @the_post.user.id %>
+      <button type="submit">
+        Message me!
+      </button>
+    </form>
+  <% end %>
+</dd>
+
+
 
       <dt>
         Created at

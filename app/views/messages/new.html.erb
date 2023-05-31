@@ -1,0 +1,8 @@
+
+<h1>New Message to <%=@conversation.recipient.first_name %></h1>
+<%= form_for [@conversation, @message] do |f| %>
+  <div class="field">
+    <%= f.text_area :body %>
+  </div>
+  <%= f.submit "Send Message" %>
+<% end %>
