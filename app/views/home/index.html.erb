@@ -1,4 +1,4 @@
-<div class="container-fluid home_container">
+<div class="container-fluid home_container" id="top">
 <h1 class="display-2 text-center pt-5 h-header">Endorse. Connect. Recruit.</h1>
 <%= image_tag "homepage_image.png", alt: "two hands being shaken", class:"img-fluid h-img"%>
 </div>
@@ -6,7 +6,7 @@
 <div class="container-fluid content_container mt-5">
    <div class="row r-content">
     <div class="col pt-5 fs-4 d-flex align-items-center justify-content-center">
-   Discover top-endorsed talent, streamline hiring, and make confident decisions with our app connecting recruiters to trusted candidates. Unlock the power of connections and enhance your recruitment efforts like never before.
+  Unlock the power of connections and revolutionize your recruitment efforts with our exclusive app designed to connect recruiters with top-endorsed talent. Discover, streamline, and make confident hiring decisions with ease. Join our platform and elevate your recruitment game like never before.
     </div>
     <div class="col">
      <%= image_tag "content_image.jpg", alt: "five people at a wooden table speacking with a notepad on the table", class:"img-fluid c-img"%>
@@ -14,6 +14,61 @@
 </div>
 </div>
 
-<div class="container-fluid h_w_container mt-5">
-   <h3 class="text-center h3_h display-3">How it works</h3>
+<div class="container-fluid h_w_container mt-5" id="works">
+   <h3 class="text-center h3_h display-4 m-5">How it works</h3>
+   <div class="row m-3">
+    <div class="col">
+     <%= image_tag "a.jpg", alt: "five people at a wooden table speacking with a notepad on the table", class:"img-fluid c-img"%>
+     <p>Show your endorsement for a candidate by submitting their resume</p>
+    </div>
+
+    <div class="col">
+    <%= image_tag "s.jpg", alt: "drawing of a woman searching on a page in black and white", class:"img-fluid"%>
+    <p>Explore a pool of exceptional candidates</p>
+    </div>
+    <div class="col">
+    <%= image_tag "h.jpg", alt: "five people at a wooden table speacking with a notepad on the table", class:"img-fluid c-img"%>
+    <p>Effortlessly hire your ideal candidate</p>
+    </div>
 </div>
+</div>
+
+
+<div class="container-fluid contactus_container mt-5" id="contact">
+   <h3 class="text-center cc_h display-4 m-5 pb-2 pt-5">Let's talk</h3>
+   <div class="row m-3">
+    <div class="col contact_left_side pb-5">
+     <%= image_tag "location.png", alt: "google maps downtown chicago location of building", class:"img-fluid"%>
+    </div>
+
+    <div class="col pb-5">
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="4" placeholder="Enter your message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+
+</div>
+
+<a href="#top" class="bttn fd-5" role="button">
+   ↑
+  Top
+</a>
+</div>
+
+</div>
+
+<footer class="footer">
+      <p>&copy; 2023 ToodleyDoodley. All rights reserved.</p>
+  </footer>
