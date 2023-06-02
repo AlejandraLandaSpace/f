@@ -15,5 +15,8 @@ class ApplicationController < ActionController::Base
       redirect_to("/user_sign_in", { :notice => "You have to sign in first." })
     end
   end
+  def index
+    render({ :template => "home/index.html.erb" })
+  end
 
 end

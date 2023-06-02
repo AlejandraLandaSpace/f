@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :messages, only: [:index, :new, :create]
   end
 
-
+  get("/", {:controller => "application", :action=>"index"})
+  
   get("/dashboard", { :controller => "dashboard", :action => "index" })
 
 

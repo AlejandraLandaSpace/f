@@ -1,19 +1,14 @@
 class PostsController < ApplicationController
   def index
     matching_posts = Post.all
-
     @posts = matching_posts.order({ :created_at => :desc })
-
     render({ :template => "posts/index.html.erb" })
   end
 
   def show
     the_id = params.fetch("path_id")
-
     matching_posts = Post.where({ :id => the_id })
-
     @the_post = matching_posts.at(0)
-
     render({ :template => "posts/show.html.erb" })
   end
 
@@ -22,6 +17,17 @@ class PostsController < ApplicationController
     the_post.description = params.fetch("query_description")
     the_post.user_id = @current_user.id
     the_post.photo = params.fetch("query_photo")
+
+    # Get the uploaded PDF file
+    #create coloumn in posts to handle file uploads
+    #the_post.upload = params.fetch("query_pdf")
+
+    #then do this
+    # Convert the PDF to images using PDFToImage gem
+    # images = PDFToImage.open(pdf_file)
+    # images.each do |img|
+    #   img.resize('50%').save("output/page-#{img.page}.jpg")
+    # end
 
     if the_post.valid?
       the_post.save
