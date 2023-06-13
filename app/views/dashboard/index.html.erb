@@ -8,14 +8,9 @@
      <%# <%= f.label :Search%>
   </div>
 <% end %>
+
 </div>
-<div class="">
-    <div class="position-absolute bottom-0 start-0">
-     <a href="/create_posts" class="btn btn-dark btn-lg ms-2" role="button">
-  Create Post
-     </a>
-   </div>
-</div>
+
 
 <div class="container">
   <div class="row">
@@ -41,9 +36,5 @@
   </div>
 </div>
 
-
-
 <%= paginate @posts, theme: 'bootstrap-5', pagination_class: "mx-auto", nav_class: "d-flex" %>
 
-
-<!--<%= link_to 'My Conversations', conversations_path %>-->
