@@ -1,33 +1,25 @@
 
-<div>
-  <div>
-    <h2>
-      Add a new post
-    </h2>
+<div class="container">
+    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+      <h2 class="mb-4">Add a new post</h2>
 
-    <form action="/insert_post" method="post" enctype="multipart/form-data">
-         <div>
-        <label for="form-group">Image</label>
-        <input type="file" id="form-group" name="query_photo" placeholder="Enter a URL for the image...">
-      </div>
-      <div>
-        <label for="description_box">
-          Description
-        </label>
-
-        <input type="text" id="description_box" name="query_description">
-      </div>
-
+      <form action="/insert_post" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="form-group" class="form-label">Image</label>
+          <input type="file" id="form-group" name="query_photo" class="form-control" placeholder="Enter a URL for the image...">
+          <p> At this time we only accept images.</p>
+        </div>
+        <div class="mb-3">
+          <label for="description_box" class="form-label">Description</label>
+          <input type="text" id="description_box" name="query_description" class="form-control">
+        </div>
 
         <input type="hidden" id="user_id_box" name="query_user_id" value="@current_user">
 
-
-      <button>
-        Create post
-      </button>
-    </form>
+        <button type="submit" class="btn btn-dark">Create post</button>
+      </form>
+    </div>
   </div>
-</div>
 
 <!--
 <div>

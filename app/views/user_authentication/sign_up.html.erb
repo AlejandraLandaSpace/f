@@ -1,47 +1,49 @@
-<h1>Sign up</h1>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-4 col-md-6">
+        <h1 class="text-center">Sign Up</h1>
 
-<form action="/insert_user" method="post">
+        <form action="/insert_user" method="post">
+          <div class="mb-3">
+            <label for="email_box" class="form-label">Email</label>
+            <input id="email_box" name="query_email" class="form-control" placeholder="Choose an email..." type="text">
+          </div>
 
-  <div>
-    <label for="email_box">Email</label>
-    <input id="email_box" name="query_email" placeholder="Choose a email..." type="text">
-  </div>
-                 
-  <div>
-    <label for="first_name_box">First name</label>
-      
-    <input type="text" id="first_name_box" name="query_first_name">
-  </div>
-         
-  <div>
-    <label for="last_name_box">Last name</label>
-      
-    <input type="text" id="last_name_box" name="query_last_name">
-  </div>
-         
-  <div>
-    <label for="company_name_box">Company name</label>
-      
-    <input type="text" id="company_name_box" name="query_company_name">
-  </div>
-    
-  <div>
-    <label for="password_box">Password</label>
-    <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
+          <div class="mb-3">
+            <label for="first_name_box" class="form-label">First Name</label>
+            <input type="text" id="first_name_box" name="query_first_name" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label for="last_name_box" class="form-label">Last Name</label>
+            <input type="text" id="last_name_box" name="query_last_name" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label for="company_name_box" class="form-label">Company Name</label>
+            <input type="text" id="company_name_box" name="query_company_name" class="form-control">
+          </div>
+           <div class="mb-3">
+            <label for="password_box" class="form-label">Password</label>
+            <input id="password_box" name="query_password" class="form-control" placeholder="Choose a password..." type="password">
+          </div>
+
+          <div class="mb-3">
+            <label for="password_confirmation_box" class="form-label">Password Confirmation</label>
+            <input id="password_confirmation_box" name="query_password_confirmation" class="form-control" placeholder="Confirm your password..." type="password">
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Sign Up
+          </button>
+        </form>
+
+        <hr>
+
+        <p class="text-center">
+          Or, <a href="/user_sign_in">Sign In</a> instead.
+        </p>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <label for="password_confirmation_box">Password Confirmation</label>
-    <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
-  </div>
-
-  <button>
-    Sign up
-  </button>
-</form>
-
-<hr>
-
-<p>
-  Or, <a href="/user_sign_in">Sign in</a> instead.
-</p>

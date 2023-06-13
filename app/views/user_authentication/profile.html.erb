@@ -1,24 +1,32 @@
-Image
+<div class="container centered">
+    <div>
+      <strong>Name</strong>
+      <p><%= @current_user.first_name %> <%= @current_user.last_name %></p>
 
+      <strong>Company</strong>
+      <p><%= @current_user.company_name %></p>
 
-<p> Name</p>
-<p><%=@current_user.first_name%> <%=@current_user.last_name%></p>
+      <p>List of user's posts:</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Created at</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% posts = @current_user.posts %>
+          <% posts.each do |post| %>
+          <tr>
+            <td><%= post.description %></td>
+            <td><%= time_ago_in_words(post.created_at) %> ago </td>
+            <td><a href="/posts/<%= post.id %>">See details</a></td>
+             </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-<p>Company</p>
-<%=@current_user.company_name%>
-
-
-<p>List of users posts:</p>
-<% posts = @current_user.posts %>
-<% posts.each do |post| %>
-<div>
-    <p>Description: <%= post.description %></p>
-    <p>Created at: <%= post.created_at %></p>
-    <a href="/posts/<%= post.id %>">See details</a>
+      <a href="/edit_user_profile" class="btn btn-dark btn-lg" role="button">Edit profile</a>
+    </div>
   </div>
-<% end %>
-
-
-<a href="/edit_user_profile" class="btn btn-primary btn-lg" role="button">
-  Edit profile
-</a>

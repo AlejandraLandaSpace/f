@@ -1,111 +1,104 @@
-<div>
-  <div>
-    <h1>
-      Post #<%= @the_post.id %> details
-    </h1>
-
+<div class="container centered">
     <div>
-      <div>
-        <a href="/dashboard">
-          Go back
-        </a>
+      <h1 class="mb-4">
+        Post #<%= @the_post.id %> details
+      </h1>
+
+      <div class="mb-4">
+        <div>
+          <a href="/dashboard">
+            Go back
+          </a>
+        </div>
+
+        <% if @current_user.id == @the_post.user_id %>
+        <div>
+          <a href="/delete_post/<%= @the_post.id %>">
+            Delete post
+          </a>
+        </div>
+        <% end %>
       </div>
 
-     <%if @current_user.id == @the_post.user_id%>
-      <div>
-        <a href="/delete_post/<%= @the_post.id %>">
-          Delete post
-        </a>
-      </div>
-      <%end%>
-    </div>
-
-    <dl>
-      <dt>
-        <img src="<%= @the_post.photo %>">
-      </dt>
-      <dt>
-        Description
-      </dt>
-      <dd>
-        <%= @the_post.description %>
-      </dd>
-
-      <dt>
-        Posted by
-      </dt>
-      <dd>
-      <%= @the_post.user.first_name %>
-      </dd>
-
-      
-        <% if @the_post.user != @current_user %>
-
-    <dt>
-  Message
-</dt>
-<dd>
-
-    <form action="<%= conversations_path %>" method="post">
-      <%= hidden_field_tag :sender_id, @current_user.id %>
-      <%= hidden_field_tag :recipient_id, @the_post.user.id %>
-      <button type="submit">
-        Message me!
-      </button>
-    </form>
-  <% end %>
-</dd>
-
-
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_post.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_post.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
-<hr>
-
-<%if @current_user.id == @the_post.user_id%>
-<div>
-  <div>
-    <h2>
-      Edit post
-    </h2>
-
-    <form action="/modify_post/<%= @the_post.id %>"  method="post" >
-      <div>
-        <label for="description_box">
+      <dl>
+        <dt>
+          <img src="<%= @the_post.photo %>">
+        </dt>
+        <dt>
           Description
-        </label>
+        </dt>
+        <dd>
+          <%= @the_post.description %>
+        </dd>
 
-        <input type="text" id="description_box" name="query_description" value="<%= @the_post.description %>">
-      </div>
+        <dt>
+          Posted by
+        </dt>
+        <dd>
+          <%= @the_post.user.first_name %>
+        </dd>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
+        <% if @the_post.user != @current_user %>
+        <dt>
+          Message
+        </dt>
+        <dd>
+          <form action="<%= conversations_path %>" method="post">
+            <%= hidden_field_tag :sender_id, @current_user.id %>
+            <%= hidden_field_tag :recipient_id, @the_post.user.id %>
+            <button type="submit" class="btn btn-primary">
+              Message me!
+            </button>
+          </form>
+        </dd>
+        <% end %>
 
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_post.user_id %>">
-      </div>
+        <dt>
+          Created at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_post.created_at) %> ago
+        </dd>
 
-      <button>
-        Update post
-      </button>
-    </form>
+        <dt>
+          Updated at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_post.updated_at) %> ago
+        </dd>
+      </dl>
+    </div>
   </div>
-</div>
-<%end%>
-<hr>
+
+  <hr>
+
+  <% if @current_user.id == @the_post.user_id %>
+  <div class="container centered">
+    <div>
+      <h2 class="mb-4">
+        Edit post
+      </h2>
+
+      <form action="/modify_post/<%= @the_post.id %>" method="post">
+        <div class="mb-3">
+          <label for="description_box" class="form-label">
+            Description
+          </label>
+
+          <input type="text" id="description_box" name="query_description" value="<%= @the_post.description %>"
+            class="form-control">
+        </div>
+
+        <div class="mb-3">
+
+          <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_post.user_id %>"
+            class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-dark mb-2">
+          Update post
+        </button>
+      </form>
+    </div>
+  </div>
+  <% end %>
