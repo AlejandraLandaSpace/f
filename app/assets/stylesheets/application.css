@@ -21,7 +21,7 @@
   box-sizing: border-box;
  }
  body{
-  background-image: url("back.jpg");
+  background-image: url("b.jpg");
  }
  h1, h2,h3,h4,h5,h6{
   font-family: Italiana;
@@ -53,8 +53,7 @@
 .bttn{
   float: right;
   border-radius: 50%;
-  background-color: white;
-  color:black;
+
   padding:20px;
   text-decoration: none;
   font-size: 20px;
@@ -63,9 +62,7 @@
 p{
   font-family: Roboto;
 }
-.bttnn{
- background-color:rgb(220, 125, 46);
-}
+
 .centered {
   display: flex;
   justify-content: center;
@@ -83,11 +80,6 @@ p{
   border: 1px solid black;
 }
 
-.create-post-btn {
-  background-color: black;
-  color: white;
-  float: right;
-}
 
 
 @media screen and (max-width: 768px){
