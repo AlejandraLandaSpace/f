@@ -22,7 +22,7 @@
 
       <dl>
         <dt>
-          <img src="<%= @the_post.photo %>">
+          <img  class="img-fluid" src="<%= @the_post.photo %>">
         </dt>
         <dt>
           Description
@@ -54,18 +54,19 @@
         <% end %>
 
         <dt>
-          Created at
+          Posted at
         </dt>
         <dd>
           <%= time_ago_in_words(@the_post.created_at) %> ago
         </dd>
-
+   <!--
         <dt>
           Updated at
         </dt>
         <dd>
           <%= time_ago_in_words(@the_post.updated_at) %> ago
         </dd>
+        -->
       </dl>
     </div>
   </div>
