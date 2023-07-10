@@ -398,6 +398,7 @@ DEPENDENCIES
   capybara
   carrierwave
   cloudinary
+  dotenv
   dotenv-rails
   draft_generators!
   factory_bot_rails
