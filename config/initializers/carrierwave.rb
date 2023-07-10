@@ -1,3 +1,4 @@
 CarrierWave.configure do |config|
-  config.cache_storage = :file
+  config.storage = :cloudinary
+  # config.cache_storage = :file
 end

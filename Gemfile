@@ -21,6 +21,7 @@ gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 
 
+
 group :development do
   gem 'htmlbeautifier'
   gem 'listen', '~> 3.2'
