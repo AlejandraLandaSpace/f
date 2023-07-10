@@ -35,7 +35,7 @@ yarn-debug.log*
 .yarn-integrity
 
 # Ignore dotenv files
-/.env*
+/.env
 
 .rbenv-gemsets
 examples.txt
